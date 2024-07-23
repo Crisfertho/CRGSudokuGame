@@ -20,21 +20,15 @@
     font-weight: 400;
     font-style: normal;
 }
-  
-body{
+
+.container {
     background-color: #66756e;
     color:white;
-    min-width: 56px;
-    min-height: 320px;
-    padding: 0;     
+    margin: 1%;
 }
 
 .dark-mode {
-    background-color: #383a39;
-
-    .iconStyle {
-        color: #ced7d3;
-    }    
+    background-color: #383a39;   
 
     .menu ul li a:hover {
         color: #d0cf98;
@@ -117,9 +111,13 @@ body{
     color: #1b221f;
     position: absolute; /* Hace el icono flotante */
     left: 30px; /* Ajusta la distancia desde la izquierda */
-    top: 80%; /* Ajusta la distancia desde la parte superior */
-    transform: translateY(-30%); /* Centra verticalmente el icono */
-    font-size: 65px;
+    top: 50%; /* Ajusta la distancia desde la parte superior */
+    transform: translateY(-14%); /* Centra verticalmente el icono */
+    font-size: 66px;
+    border: 6px solid #1b221f; /* Borde del icono */
+    border-radius: 50%; /* Bordes redondeados */
+    padding: 5px; /* Espacio alrededor del icono */
+    background-color: #fff; /* Fondo blanco para mejor contraste */
 }
 
 .menu-list {
@@ -386,22 +384,6 @@ body{
     justify-content: space-around;
 }
 
-.sectionB {
-    text-align: center;
-    font-size: 2.2rem;
-    padding-top: 0.3rem;
-}
-
-#timer{
-    text-align: center;
-    margin-left: auto;
-    margin-top: 2.2rem;
-    color: rgb(52, 45, 45);
-    font-weight: bold;
-    font-size: 1.6rem;
-        
-}
-
 .sectionA {
     display: flex;
     flex-direction: column;
@@ -422,6 +404,21 @@ body{
     }
 }
 
+.sectionB {
+    text-align: center;
+    font-size: 2.2rem;
+    padding-top: 0.3rem;
+}
+
+#timer{
+    text-align: center;
+    margin-left: auto;
+    margin-top: 2.2rem;
+    color: rgb(52, 45, 45);
+    font-weight: bold;
+    font-size: 1.6rem;
+        
+}
     
 #lives {
     color: rgb(41, 39, 38);
@@ -504,8 +501,6 @@ body{
        cursor: pointer;
        margin-bottom: 0.8rem;
     }
-
-
 }
 
 .footer {
@@ -558,18 +553,28 @@ body{
 
         .helpbutton{
             margin: 0;
-        }
-        
+        }   
     }
-    
-    
 }
 
 @media screen and (max-width:768px) {
 
+    .container {
+       min-width: 29.8rem;
+    }
+
     .menu {
         align-items: flex-start;
         position: relative;
+
+        .iconStyle {
+            left: 12px; /* Ajusta la distancia desde la izquierda */
+            transform: translateY(-41%); /* Centra verticalmente el icono */
+            font-size: 50px;
+            border: 4px solid #1b221f; /* Borde del icono */
+            border-radius: 50%; /* Bordes redondeados */
+            padding: 4px; /* Espacio alrededor del icono */
+        }
     }
 
     .menu-list {
