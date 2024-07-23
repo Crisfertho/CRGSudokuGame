@@ -1,0 +1,656 @@
+@import url('https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chela+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chela+One&family=Titan+One&display=swap');
+
+.jaro-font {
+    font-family: "Jaro", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.chela-one {
+  font-family: "Chela One", system-ui;
+  font-weight: 600;
+  font-style: normal;
+  letter-spacing: 6px;
+}
+
+.titan-one {
+    font-family: "Titan One", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+body{
+    background-color: #66756e;
+    color:white;
+    min-width: 56px;
+    min-height: 320px;
+    padding: 0;     
+}
+
+.dark-mode {
+    background-color: #383a39;
+
+    .iconStyle {
+        color: #ced7d3;
+    }    
+
+    .menu ul li a:hover {
+        color: #d0cf98;
+    }
+
+    .darkbotton:hover {
+        background-color: #c5a7a7;
+    }
+    
+    .sectionA, .sectionC {
+        button {
+            background-color: rgb(151, 159, 124);
+            border: solid 4px rgb(55 104 107);
+            color: rgb(205, 205, 205);
+            }
+        }
+
+    #timer {
+        color: #b8b5b5;
+    }
+        
+    #lives {
+        color: #c5a7a7;
+    }
+    
+
+    .celdas {
+        input{
+        color: rgb(131, 124, 105);
+        }
+
+        .box{
+            border: solid rgb(193, 67, 178) 2px;
+        }
+    }
+
+    .sectionC{
+
+        #game_type{
+            label {
+                color: #c5a7a7;
+            }
+        }
+
+        .helpbutton {
+            background-color: rgb(119, 125, 99);
+            border: solid 4px rgb(55 104 107);
+            color: rgb(205, 205, 205);
+        }
+    }
+
+    .social-icons a {
+        color: #c5a7a7; /* Color de los íconos, puedes cambiarlo según tu preferencia */
+    }
+    
+}
+
+.header {
+    border-style: dotted;
+    
+    h1{
+        margin-top: 0%;
+        margin-bottom: 1rem;
+        text-align: CENTER;
+        font-size: 2.6rem;
+    }
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
+    font-family: "Jaro", sans-serif;
+    position: relative; /* Añadido para que el icono flotante funcione correctamente */
+
+}
+
+.iconStyle {
+    color: #1b221f;
+    position: absolute; /* Hace el icono flotante */
+    left: 30px; /* Ajusta la distancia desde la izquierda */
+    top: 80%; /* Ajusta la distancia desde la parte superior */
+    transform: translateY(-30%); /* Centra verticalmente el icono */
+    font-size: 65px;
+}
+
+.menu-list {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-list li:last-child {
+    margin-right: 20px;
+}
+
+.menu-list a {
+    text-decoration: none;
+    margin-left: 20px; /* Espacio entre elementos del menú */
+    color: #c5a7a7;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+.menu-list a:hover {
+    color: #444;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.toggle {
+    display: block;
+    text-align: center;
+    user-select: none;
+}
+
+.toggle--checkbox {
+    display: none;
+}
+
+.toggle--btn {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.4em;
+    transition: all 350ms ease-in;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.toggle--btn,
+.toggle--checkbox,
+.toggle--feature {
+    &,
+    &:before,
+    &:after {
+        transition: all 250ms ease-in;
+    }
+    &:before,
+    &:after {
+        content: '';
+        display: block;
+    }
+}
+
+.toggle--daynight,
+.toggle--like {
+    .toggle--btn {
+        position: relative;
+        height: 50px;
+        width: 100px;
+        border-radius: 60px;
+            
+        &:before {
+            position: absolute;
+            left: 1px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+    }
+}
+
+.toggle--daynight {
+    .toggle--btn {
+        border: 5px solid #1c1c1c;
+        background-color: #3c4145;
+            
+        &:before {
+            background-color: #fff;
+            border: 5px solid #e3e3c7;
+        }
+        &:after {
+            position: absolute;
+            top: 55%;
+            left: calc(100% - 50px - 10px); /* Ajustado para posicionar a la derecha */
+            z-index: 10;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+            background-color: #fff;
+            border-radius: 50%;
+                
+            box-shadow: #fff 0 0,
+                        #fff 3px 0,
+                        #fff 6px 0,
+                        #fff 9px 0,
+                        #fff 11px 0,
+                        #fff 14px 0,
+                        #fff 16px 0,
+                        #fff 21px -1px 0 1px,
+                        #fff 16px -7px 0 -2px,
+                        #fff 7px -7px 0 1px,
+                        #d3d3d3 0 0 0 4px,
+                        #d3d3d3 6px 0 0 4px,
+                        #d3d3d3 11px 0 0 4px,
+                        #d3d3d3 16px 0 0 4px,
+                        #d3d3d3 21px -1px 0 5px,
+                        #d3d3d3 16px -7px 0 1px,
+                        #d3d3d3 7px -7px 0 5px;
+            transition: opacity 100ms ease-in;
+        }
+    }
+    @keyframes starry_star {
+        50% {
+            background-color: rgba(255,255,255,0.1);
+            box-shadow: #fff 16px -2px 0 0,
+                        #fff -9px 11px 0 -1px,
+                        rgba(255,255,255,0.1) 25px 15px 0 1px,
+                        #fff 15px 27px 0 0,
+                        rgba(255,255,255,0.1) 7px 15px 0 -1.5px,
+                        #fff -8px 26px 0 1px;
+        }
+    }
+    @keyframes bounceIn {
+        0% {
+            opacity: 0;
+            transform: scale(.3);
+        }
+        50% {
+            opacity: 100;
+            transform: scale(1.1);
+        }
+        55% {
+            transform: scale(1.1);
+        }
+        75% {
+            transform: scale(.9);
+        }
+        100% {
+            opacity: 100;
+            transform: scale(1);
+        }
+    }
+        
+    .toggle--feature {
+       display: block;
+        position: absolute;
+        top: 6px;
+        z-index: 10;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #fff;
+        right: 43%;
+        
+        box-shadow: rgba(255,255,255,0.1) 18px -1px 0 0,
+                    rgba(255,255,255,0.1) -3px 11px 0 -1px,
+                    #fff 32px 13px 0 1px,
+                    rgba(255,255,255,0.1) 19px 25px 0 0,
+                    #fff 12px 14px 0 -1.5px,
+                    rgba(255, 255, 255, 0.425) -3px 27px 0 1px;
+        
+        animation: starry_star 5s ease-in-out infinite;
+        
+        &:before {
+            position: absolute;
+            top: -2px;
+            left: -27px;
+            width: 15px;
+            height: 15px;
+            background-color: #fff;
+            border-radius: 50%;
+            border: 3.5px solid #e3e3c7;
+            box-shadow: #e3e3c7 -16px 0 0 -3px,
+                        #e3e3c7 -6px 16px 0 -2px;
+            transform-origin: -6px 130%;
+        }
+    }
+        
+    .toggle--checkbox:checked {
+        & + .toggle--btn {
+            background-color: #9ee3fb;
+            border: 5px solid #86c3d7;
+
+            &:before {
+                left: 50px; /* Mueve la rueda hacia la derecha */
+                background-color: #ffdf6d;
+                border: 5px solid #e1c348;
+            }
+
+            &:after {
+                opacity: 100;
+                animation-name: bounceIn;
+                animation-duration: 0.60s;
+                animation-delay: 0.10s;
+                animation-fill-mode: backwards;
+                animation-timing-function: ease-in-out;
+            }
+           > .toggle--feature {
+                opacity: 0;
+                box-shadow: rgba(255,255,255,0.1) 30px -3px 0 -4px,
+                            rgba(255,255,255,0.1) 12px 10px 0 -5px,
+                            #fff 38px 18px 0 -3px,
+                            rgba(255,255,255,0.1) 32px 34px 0 -4px,
+                            #fff 20px 24px 0 -5.5px,
+                            rgba(255,255,255,0.1) 5px 38px 0 -3px;
+                animation: none;
+
+                &:before {
+                    left: 35px;
+                    transform: rotate(70deg);
+                }
+            }
+        }
+    }
+}
+
+/* Burger menu styles */
+.burger-menu {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-90%);
+
+    div {
+        width: 30px;
+        height: 5px;
+        background-color: rgb(211, 198, 198);
+        margin: 5px 0;
+        transition: 0.4s;
+    }
+}
+
+.burger-menu.open .line1 {
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.burger-menu.open .line2 {
+    opacity: 0;
+}
+
+.burger-menu.open .line3 {
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.contenedor {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: start;
+    justify-content: space-around;
+}
+
+.sectionB {
+    text-align: center;
+    font-size: 2.2rem;
+    padding-top: 0.3rem;
+}
+
+#timer{
+    text-align: center;
+    margin-left: auto;
+    margin-top: 2.2rem;
+    color: rgb(52, 45, 45);
+    font-weight: bold;
+    font-size: 1.6rem;
+        
+}
+
+.sectionA {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem;
+        
+
+    button {
+        height: 50px;
+        width: 200px;
+        font-size: x-large;
+        font-weight: bold;
+        background-color: rgb(221, 224, 209);
+        border: solid 4px rgb(60, 27, 27);
+        border-radius: 22px;
+        color: rgb(44, 30, 30);
+        cursor: pointer;
+        margin-bottom: 0.8rem;
+    }
+}
+
+    
+#lives {
+    color: rgb(41, 39, 38);
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#rem_live {
+    margin-left: 0.8rem;
+}
+
+.celdas {
+
+    display: flex;
+    flex-direction: row;
+   height: 480px;
+   width: 480px;
+    border: solid white 4px;
+    margin-top: 0.8rem;
+
+    .box{
+        height: 157px;
+        width: 157px;
+        border: solid rgb(73, 117, 71) 2px;
+        background-color: #cac7c7;
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    .cell {
+        height: 50px;
+        width: 50px;
+        border: solid white 1px;
+        text-align: center;
+        background-color: #392929;
+        text-align: center;
+        font-size: x-large;
+        font-weight: bold;
+    }
+    
+}
+
+.celdas input {
+    height: 45px;
+    width: 44px;
+    border: none;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bold;
+    background-color: #edebeb;
+    color: #334a7f; 
+}
+
+.sectionC {
+    
+    display: flex;
+    flex-direction: column;
+
+    #game_type {
+        margin-top: 1.8rem;
+
+        label {
+            color: #242a38;
+            display: flex;
+            cursor: pointer;
+            align-items: center;
+        }
+    }
+
+    .helpbutton {
+       margin-top: 3rem;
+       height: 45px;
+       width: 170px;
+       font-size: x-large;
+       font-weight: bolder;
+       background-color: rgb(221, 224, 209);
+       border: solid 4px rgb(60, 27, 27);
+       border-radius: 22px;
+       color: rgb(44, 30, 30);
+       cursor: pointer;
+       margin-bottom: 0.8rem;
+    }
+
+
+}
+
+.footer {
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center; /* Centra los íconos horizontalmente */
+    gap: 14px; /* Espacio entre los íconos */
+}
+
+.social-icons a {
+    color: #000; /* Color de los íconos, puedes cambiarlo según tu preferencia */
+    font-size: 1.5rem; /* Tamaño de los íconos */
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: #f8e0e0; /* Color de los íconos al pasar el ratón, opcional */
+}
+
+@media screen and (max-width:980px) {
+
+    .sectionC {
+        margin: 1rem;
+
+        #game_type {
+            display: flex;
+            align-items: flex-end;
+            flex-direction: row;
+            margin-top: 0;
+
+            section {
+                margin: 0 1rem 0.6rem 1rem;
+                display: flex;           
+                flex-direction: column;
+                   
+                div {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                }
+            }
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        .helpbutton{
+            margin: 0;
+        }
+        
+    }
+    
+    
+}
+
+@media screen and (max-width:768px) {
+
+    .menu {
+        align-items: flex-start;
+        position: relative;
+    }
+
+    .menu-list {
+        display: none;
+        margin-top: 40px;
+        flex-direction: column;
+        width: 77%;
+        text-align: center;
+    }
+
+    .menu-list.active {
+        display: flex;
+    }
+
+    .menu-list li {
+        margin: 3px 0 !important;
+    }
+
+    .menu-list li {
+        opacity: 0;
+        transform: translateY(0);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .menu-list.active li:nth-child(1) {
+        animation: fadeIn 0.5s forwards;
+    }
+
+    .menu-list.active li:nth-child(2) {
+        animation: fadeIn 0.5s 0.2s forwards;
+    }
+
+    .menu-list.active li:nth-child(3) {
+        animation: fadeIn 0.5s 0.4s forwards;
+    }
+
+    .menu-list.active li:nth-child(4) {
+        animation: fadeIn 0.5s 0.6s forwards;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+
+    .contenedor {
+        display: grid;
+        justify-items: center;
+    }
+    
+    .sectionA {
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;   
+    }
+
+    #timer {
+        text-align: center;
+     }
+
+    .sectionC{
+       #game_type {
+        flex-direction: column;  
+        align-items: center;  
+       }
+
+       .helpbutton {
+        margin-top: 1rem;
+       }
+    }
+}
+
+/* Animación de desvanecimiento */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

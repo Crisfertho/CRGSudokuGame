@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRGSudokuGame</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="container">
+    <!--*****HEADER******-->
+    <header class="header">
+        <nav class="menu">
+            <i class="fa fa-gamepad iconStyle"></i>
+            <div class="burger-menu" id="burgerMenu" onclick="toggleMenu()">
+               <div class="line1"></div>
+               <div class="line2"></div>
+               <div class="line3"></div>
+            </div> 
+            <ul class="menu-list" id="menuList">
+                <li><a href="#" onclick="start()">Iniciar</a></li>
+                <li><a href="#" onclick="replay()">Nuevo juego</a></li>
+                <li><a href="#" onclick="answer()">Resolver</a></li>
+                <li><a href="#" onclick="finish()">Terminar</a></li>
+            </ul>
+            <div class="toggle toggle--daynight">
+                <input type="checkbox" id="toggle--daynight" id="darkModeToggle" onclick="toggleDarkMode()" class="toggle--checkbox">
+                <label class="toggle--btn" for="toggle--daynight"><span class="toggle--feature"></span></label>
+              </div>
+        </nav>
+        <h1 class="chela-one">SUDOKUCRG</h1>
+    </header>
+    <!--****¨CONTENEDOR******-->
+    <div class="contenedor">
+
+        <!--*****PRIMERA PARTE******-->
+        <div class="botones">
+            <div class="jaro-font" id="timer">Tiempo Restante: <br><span id="time_min">00</span>:<span id="time_sec">00</span></div>
+            <section class="sectionA">
+            <button class="jaro-font" type="button" id="start" onclick="start()">Iniciar</button>
+            <button class="jaro-font" type="button" id="replay" onclick="replay()">Nuevo Juego</button>
+            <button class="jaro-font" type="button" id="answer" onclick="answer()">Resolver</button>
+            <button class="jaro-font" type="button" id="answer" onclick="finish()">Terminar</button>
+            </section>
+        </div>
+        <!--*****SEGUNDA PARTE******-->
+        <div class="sectionB"> 
+            <div class="jaro-font" id="lives">SOLO TIENES <span id="rem_live">3</span> 
+                <svg class="iconoC" version="1.0" xmlns="http://www.w3.org/2000/svg"
+                    width="40pt" height="35pt" viewBox="-10 -10 512.000000 510.000000"
+                    preserveAspectRatio="xMidYMid meet">
+    
+                    <g transform="translate(0.000000,612.000000) scale(0.100000,-0.100000)"
+                    fill="#ff0c0c">
+                    <path d="M1510 4021 c-329 -72 -605 -307 -705 -602 -194 -566 121 -1205 895
+                    -1819 278 -220 776 -520 864 -520 27 0 255 115 386 195 626 381 1112 866 1306
+                    1305 85 193 119 361 111 545 -12 273 -102 474 -292 653 -101 95 -215 164 -342
+                    208 -132 45 -223 58 -368 51 -308 -14 -593 -177 -760 -436 l-47 -73 -26 44
+                    c-122 207 -348 376 -587 439 -116 30 -321 35 -435 10z m55 -432 c77 -22 145
+                    -116 145 -199 -1 -70 -76 -160 -151 -180 -160 -43 -301 133 -224 280 20 39 69
+                    80 111 95 48 17 68 18 119 4z" stroke="black" stroke-width="5"/>
+                    </g>
+                </svg> 
+            </div>
+            <div class="celdas" id="main">
+                <div id="row1">
+                    <div id="box1" class="box"></div>
+                    <div id="box2" class="box"></div>
+                    <div id="box3" class="box"></div> 
+                </div>
+                <div id="row2">
+                    <div id="box4" class="box"></div>
+                    <div id="box5" class="box"></div>
+                    <div id="box6" class="box"></div>
+                </div>
+                <div id="row3">
+                    <div id="box7" class="box"></div>
+                    <div id="box8" class="box"></div>
+                    <div id="box9" class="box"></div>
+                </div>
+            </div>
+        </div>
+
+        <!--*****TERCERA PARTE******-->
+        <div class="sectionC">
+            <div id="game_type">
+                <section>
+                    <h3>Escoger Nivel: </h3>
+                    <div>
+                    <label><input type="radio" id="easy" class="label" name="diff_level" checked> Facil</label>
+                    <label><input type="radio" id="medium" class="label" name="diff_level" > Medio</label>
+                    <label><input type="radio" id="hard" class="label" name="diff_level"> Duro</label>
+                    </div>
+                </section>
+            
+                <section>
+                    <h3>Tiempo Limite: </h3>
+                    <div>
+                    <label><input type="radio" id="time1" class="label" name="time" checked><span id="time1_min">05</span>:<span id="time1_sec">00</span></label>
+                    <label><input type="radio" id="time2" class="label" name="time"><span id="time2_min">10</span>:<span id="time2_sec">00</span></label>
+                    <label><input type="radio" id="time3" class="label" name="time"> <span id="time3_min">13</span>:<span id="time3_sec">00</span></label>
+                    </div>
+                </section>
+            
+                <section> <button class="helpbutton jaro-font" type="button" id="help" onclick="help()">Como Jugar</button></section>
+            </div>
+        </div>
+
+    </div>
+    <!--*****FOOTER******-->
+    <footer class="footer">
+        <p>Juego Sudoku, elaborado por CristhoferRG 2024</p>
+        <div class="social-icons">
+            <a href="https://github.com/Crisfertho" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.instagram.com/cristhoferrg06/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/cristhofer-riverag92/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://wa.me/50660865218" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+    </footer>
+    <script src="scripto.js"></script>
+</body>
+</html>
